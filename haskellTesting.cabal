@@ -1,14 +1,14 @@
 name:                haskellTesting
 version:             0.1.0.0
--- synopsis:
--- description:
-homepage:            https://github.com/githubuser/haskellTesting#readme
+synopsis:            Learning about testing in Haskell
+description:         Working through chapter 14 of the glorious Haskell Book on testing in Haskell.
+homepage:            https://github.com/NewMountain/haskellTesting
 license:             BSD3
 license-file:        LICENSE
-author:              Author name here
-maintainer:          example@example.com
-copyright:           2017 Author name here
-category:            Web
+author:              Christopher Nyberg
+maintainer:          https://github.com/NewMountain
+copyright:           2017 Christopher Nyberg
+category:            Testing
 build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >=1.10
@@ -16,10 +16,15 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     Lib
+  ghc-options:         -Wall -fwarn-tabs
   build-depends:       base >= 4.7 && < 5
+                     , hspec
+                     , ghc-mod
+                     , hindent
+                     , hlint
   default-language:    Haskell2010
 
-executable haskellTesting-exe
+executable haskellTesting
   hs-source-dirs:      app
   main-is:             Main.hs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
@@ -33,9 +38,10 @@ test-suite haskellTesting-test
   main-is:             Spec.hs
   build-depends:       base
                      , haskellTesting
+                     , hspec
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/haskellTesting
+  location: https://github.com/NewMountain/haskellTesting
